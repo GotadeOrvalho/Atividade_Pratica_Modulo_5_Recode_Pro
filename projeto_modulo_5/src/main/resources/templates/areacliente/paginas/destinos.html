@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html th:replace="~{areacliente/layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+
+	<title>Destinos</title>
+
+</head>
+
+<body>
+
+
+	<!-- Começo da main-->
+	<main class="">
+		<section class="bg-main row col-9 justify-content-center py-3 mx-auto">
+			<legend class="legend px-4 pt-3">Explore famosos pontos turísticos!</legend>
+			<div class="row row-cols-sm-2 row-cols-1 row-cols-md-3 g-4"  > 
+
+
+				<div class="col" th:each="destino : ${destino}">
+					<div class="card h-100">
+						<img th:src="@{'/destinos/imagem/' + ${destino.id_destino}}" class="card-img-top" alt="">
+						<div class="card-body">
+
+							<h5 class="card-title fw-bold h5 ">
+								<span th:text="${destino.cidade}"></span> -
+								<span th:text="${destino.uf}"></span>
+							</h5>
+
+							<p class="small text-body-secondary fw-bold mb-0 pt-2">pelo preço de </p>
+							<p class="card-text fw-bolder fs-3 preço"
+								th:text="${#numbers.formatCurrency(destino.valorFinal)}">R$ 250,00</p>
+						</div>
+						<hr class="mx-4 mt-0">
+						<div class="text-center">
+							<a href="Destino.html"><button type="button"
+									class="btn button btn-outline-light py-1 mb-2 fw-bolder fs-5"
+									title="Link de compra.">Comprar</button></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+	<!-- Fim da main-->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<div th:fragment="content_header" class="row justify-content-center ">
+
+    <!-- Seção 1 -->
+    <section class=" row m-0  masthead masthead-sm bgimg-sessao1 justify-content-center">
+      <div class="card estilo-card align-self-center">
+        <form class="card-body   form-inline">
+          <legend>Encontre a passagem que cabe no seu bolso!</legend>
+          <label for="" class="mr-sm-2 form-label">Escolha uma opção:</label>
+          <input type="radio" id="ida" value="apenasida" name="ida_volta" class="form-check-input">
+          <label for="ida" class="mr-sm-2 form-check-label ">Apenas Ida</label>
+
+          <input type="radio" id="ida-volta" value="ida-volta" name="ida_volta" class="mr-sm-2 form-check-input">
+          <label for="ida-volta" class="form-check-label">Ida e volta</label>
+
+          <p>
+            <input type="text" id="indo" placeholder="Digite onde é seu destino!" class="form-control-sm form">
+            <label class="form-label"><img src="./img/seta-circular (1).png"
+                alt="Símbolo de troca, significa que os destinos serão trocados."></label>
+            <input type="text" id="voltando" placeholder="Digite seu local de retorno!"
+              class="form-control-sm mb-2 mr-sm-2 form ">
+
+            <label for="dataida" class="form-label imgdata"><img src="./img/icons8-avião-decolando-40.png"
+                alt="Imagem de avião decolando."></label>
+            <input type="date" id="dataida" class="form-control-sm formdata">
+            <label for="datavolta" class="form-label imgdata"><img src="./img/icons8-avião-pousando-40.png"
+                alt="Imagem de avião pousando."></label>
+            <input type="date" id="datavolta" class="form-control-sm formdata">
+
+            <label for="viajantes" class="form-label">Viajantes</label>
+            <select id="viajantes" class="viajantes text-white form-select-sm" name="viajantes">
+              <option value="1" class="viajantes">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <a href="Promoções.html" title="Link de promoções."><input type="button" name="buscar-voos"
+                value="Buscar Voos" class="button btn btnsm text-white border-waning p-1 px-2   "></a>
+          </p>
+        </form>
+      </div>
+    </section>
+ </div>

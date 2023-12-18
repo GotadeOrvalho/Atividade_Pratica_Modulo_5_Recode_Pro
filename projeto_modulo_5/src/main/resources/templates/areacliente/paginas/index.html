@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html th:replace="~{areacliente/layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+
+  <title>Página inicial</title>
+ 
+</head>
+
+<body >
+
+
+  <!-- Começo da main-->
+  <main class="mb-0">
+
+    <!-- Seção 1 -->
+    
+    <!-- Fim da Seção 1-->
+    <section class="bg-main mb-0 row col-9 mx-auto  h-100">
+
+      <legend class="my-0 pt-5 px-4">Os melhores destinos pra você!</legend>
+      <div id="carouselExampleIndicators1" class="carousel slide ">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/riodejaneiro.png" class="card-img " alt="Imagem do Rio de Janeiro.">
+              <div class="card-img-overlay align">
+                <h3 class="card-title letra">Rio de Janeiro</h3>
+                <p class="card-text">Visite um dos lugares mais famosos do brasil.</p>
+                <p class="card-text h6"><small>Descontos de até 30% em suas viagens.</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/fortaleza.png" class="card-img " alt="Imagem de Fortaleza.">
+              <div class="card-img-overlay align">
+                <h3 class="card-title  letra">Fortaleza</h3>
+                <p class="card-text">Lindas praias esperam vocês!</p>
+                <p class="card-text h6"><small>Descontos de até 35% em suas viagens.</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/brasilia.png" class="card-img " alt="">
+              <div class="card-img-overlay align">
+                <h3 class="card-title letra">Brasília</h3>
+                <p class="card-text">Pontos turísticos históricos incríveis.</p>
+                <p class="card-text h6"><small>Descontos de até 25% em suas viagens.</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="bg-main row col-9  mx-auto">
+      <legend class="my-0 pt-3 px-4">Os melhores destinos pra você!</legend>
+      <div id="carouselExampleIndicators2" class="carousel slide">
+        <div class="carousel-indicators ">
+          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/recife.png" class="card-img " alt="">
+              <div class="card-img-overlay align">
+                <h3 class="card-title letra">Recife</h3>
+                <p class="card-text">Um dos lugares mais bonitos do país.</p>
+                <p class="card-text h6"><small>Agenge já sua viagem!</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/salvador.jpg" class="card-img " alt="">
+              <div class="card-img-overlay align">
+                <h3 class="card-title letra">Salvador</h3>
+                <p class="card-text">Uma cultura rica para se explorar.</p>
+                <p class="card-text h6"><small>Agenge já sua viagem!</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card text-bg-dark text-center">
+              <img src="./img/saopaulo.png" class="card-img " alt="">
+              <div class="card-img-overlay align">
+                <h4 class="card-title letra ">São Paulo</h4>
+                <p class="card-text">Sejam bem-vindos a cidade grande famosa pela sua gastronomia, hotelaria e negocios.
+                </p>
+                <p class="card-text h6"><small>Agenge já sua viagem!</small></p>
+                <a href="Destino.html"><button type="button" class="btn btn-outline-light"
+                    title="Link para você ver mais.">Ver mais</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Fim da main-->
+
+
+
+ 
+</body>
+
+</html>

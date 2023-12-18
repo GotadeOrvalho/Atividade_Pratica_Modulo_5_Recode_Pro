@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br" th:fragment="layout (title, content, styles, scripts)">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:include="${title}"> </title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" th:href="@{/CSS/estilo.css}">
+
+
+</head>
+
+<body class="body">
+
+	<div class="wrapper">
+
+		<nav th:replace="~{areacliente/fragments/_navbar :: nav}"></nav>
+
+
+
+		<div class="content-wrapper">
+
+			<section class="content">
+				<div th:replace="~{areacliente/fragments/_header :: content_header}"></div>
+
+				<div class="container-fluid" th:include="${content}">
+
+				</div>
+			</section>
+
+		</div>
+
+
+		<footer th:replace="~{areacliente/fragments/_footer :: footer}" class="mt-auto mb-auto"></footer>
+	</div>
+	
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

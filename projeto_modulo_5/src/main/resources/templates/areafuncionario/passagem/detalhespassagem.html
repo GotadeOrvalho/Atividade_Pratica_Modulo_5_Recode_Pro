@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html th:replace="~{areafuncionario/layout :: layout (~{::title}, ~{::main}, _, _)}">
+
+<head>
+	<title>Detalhes da Passagem</title>
+</head>
+
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Default box -->
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title" th:text="${passagem.cliente.nome}">AvMakers Landing Page</h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 order-2 order-md-1">
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<div class="info-box bg-light">
+											<div class="info-box-content">
+												<span class="info-box-text text-center text-muted">Número do Vôo</span>
+												<span class="info-box-number text-center text-muted mb-0"
+													th:text="${passagem.destino.num_voo}">1565432</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<div class="info-box bg-light">
+											<div class="info-box-content">
+												<span class="info-box-text text-center text-muted">Assento</span>
+												<span class="info-box-number text-center text-muted mb-0"
+													th:text="${passagem.assento}">7 de julho de 2018</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								
+								<div class="col-12 order-2 order-md-1">
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<div class="info-box bg-light">
+											<div class="info-box-content">
+												<span class="info-box-text text-center text-muted">Data e Hora de Embarque</span>
+												<span class=" text-center text-muted mb-0"
+													th:text="${#dates.format(passagem.destino.dataHora, 'dd/MM/yyyy - HH:mm')}">7 de julho de 2018</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<div class="info-box bg-light">
+											<div class="info-box-content">
+												<span class="info-box-text text-center text-muted">Valor</span>
+												<span class="info-box-number text-center text-muted mb-0"
+													th:text="${#numbers.formatCurrency(passagem.destino.valorFinal)}">R$
+													2.300,00</span>
+											</div>
+										</div>
+									</div>
+									
+									
+
+								</div>
+							</div>
+							<div class="col-12 order-1 order-md-2">
+								<h2>Detalhes</h2>
+
+
+								<br>
+
+								<h4>Dados Pessoais</h4>
+								<p th:text="${passagem.cliente.nome}">Deveint Inc</p>
+								<p th:text="${passagem.cliente.cpf}">Deveint Inc</p>
+								<p th:text="${passagem.cliente.telefone}">Deveint Inc</p>
+								<p th:text="${passagem.cliente.email}">Deveint Inc</p>
+								<p th:text="${passagem.cliente.dataNascimento}">Deveint Inc</p>
+							
+
+								<h4>Dados do Destino</h4>
+								<p th:text="${passagem.destino.cidade}">Tony Chicken</p>
+								<p th:text="${passagem.destino.uf}">Tony Chicken</p>
+								<p th:text="${passagem.destino.pais}">Tony Chicken</p>
+								<p th:text="${passagem.destino.aeroporto}">Tony Chicken</p>
+
+								<div class="text-center mt-5 mb-3">
+									<a class="btn btn-sm btn-warning"
+										th:href="@{/passagem/{id}/editar (id=${passagem.id_passagem})}">
+										<i class="fas fa-edit"></i>
+										Editar
+									</a>
+									<a href="#" class="btn btn-sm btn-danger"
+										th:href="@{/passagem/{id}/excluir (id=${passagem.id_passagem})}"
+										onclick="return confirm('Tem certeza que deseja excluir essa passagem?');">
+										<i class="fas fa-trash"></i>
+										Excluir
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html th:replace="~{areafuncionario/layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+	<title>Lista de Destinos</title>
+</head>
+
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<!-- /.card-header -->
+					<div class="card-body table-responsive p-0">
+						<table class="table table-hover text-nowrap">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Cidade</th>
+									<th>UF</th>
+									<th>País</th>
+									<th>Aeroporto</th>
+									<th>Número do Vôo</th>
+									<th>Promoção (%)</th>
+									<th>Data e Hora</th>
+									<th>Valor</th>
+									<th>Ações</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="destino : ${destino}">
+									<td th:text="${destino.id_destino}">183</td>
+									<td th:text="${destino.cidade}">Fortaleza</td>
+									<td th:text="${destino.uf}">CE</td>
+									<td th:text="${destino.pais}">Brasil</td>
+									<td th:text="${destino.aeroporto}">Pinto</td>
+									<td th:text="${destino.num_voo}"></td>
+									<td th:text="${destino.promocao}">15</td>
+									<td th:text="${#dates.format(destino.dataHora, 'dd/MM/yyyy - HH:mm')}">15</td>
+									<td th:text="${#numbers.formatCurrency(destino.valorFinal)}">15</td>
+									<td>
+										<div class="btn-group">
+											<a type="button" data-toggle="popover" data-placement="top"
+												data-content="Detalhes" data-trigger="hover" class="btn btn-primary"
+												th:href="@{/destinos/{id} (id=${destino.id_destino})}">
+												<i class="fas fa-eye"></i>
+											</a>
+											<a type="button" data-toggle="popover" data-placement="top"
+												data-content="Editar" data-trigger="hover" class="btn btn-warning"
+												th:href="@{/destinos/{id}/editar (id=${destino.id_destino})}">
+												<i class="fas fa-edit"></i>
+											</a>
+											<a type="button" data-toggle="popover" data-placement="top"
+												data-content="Remover" data-trigger="hover" class="btn btn-danger"
+												th:href="@{/destinos/{id}/excluir (id=${destino.id_destino})}"
+												onclick="return confirm('Tem certeza que deseja excluir o destino?');">
+												<i class="fas fa-trash"></i>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.card-body -->
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:fragment="scripts">
+		<script>
+			$(function () {
+				$('[data-toggle="popover"]').popover()
+			})
+		</script>
+	</th:block>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html th:replace="~{areacliente/layout2 :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+
+	<title>[[${cliente.id == null ? 'Novo' : 'Editar'}]] Cliente</title>
+
+</head>
+
+<body class="">
+
+
+	<main class="">
+
+
+
+		<section class="bg-main row col-8 justify-content-center py-3 mx-auto">
+
+
+			<div class="container bg-l">
+
+				<div class=" row d-flex justify-content-center align-items-center  ">
+					<div>
+						<div class="d-flex mx-auto pt-4 cadastro1" style="width: 7rem">
+							<img th:src="@{/img/22646cad-5577-46be-8243-e690ed23ef75.jpeg}" alt="login-icon"
+								style="height: 5rem" class="pt-1">
+						</div>
+
+						<div class="text-center fs-1 letra">Cadastre-se</div>
+
+
+
+						<form class="row  form-control border-0 mt-4" th:object="${cliente}" method="post" enctype="multipart/form-data">
+							
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+							
+							<div class="col-8 mx-auto">
+
+								<legend>Dados Pessoais</legend>
+								
+								 <input type="hidden" th:field="*{id}">
+								 
+								 <div class="input-group" th:if="${cliente.id!=null}">
+									<div class="form-group">
+										<label for="imagem"><i>Sua imagem aqui!</i></label>
+										<input type="file" class="form-control" id="imagem" name="fileCliente">
+									</div>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type=text placeholder="CPF (XXX.XXX.XXX-XX)"
+										th:field=" *{cpf}" required>
+								</div>
+
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" th:field="*{nome}"
+										placeholder="Nome completo" required>
+
+								</div>
+
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="date" name="data_nascimento"
+										th:field="*{dataNascimento}" required>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="email" placeholder="E-mail"
+										th:field="*{email}" required>
+								</div>
+
+								<div class="input-group pt-4 pb-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type=text name="telefone"
+										placeholder="Telefone (DDD 9xxxx-xxxx)" th:field="*{telefone}" required>
+								</div>
+
+								<legend>Endereço</legend>
+
+								<input type="hidden" th:field="*{endereco.id}">
+
+								<div class="pt-4 row">
+									<div class="col-md-8">
+										<div class="input-group">
+											<div class="input-group-text">
+												<i class="bi bi-person-circle"></i>
+											</div>
+											<input class="form-control bg-light" type="text"
+												placeholder="CEP - 00000-000" th:field="*{endereco.cep}" required>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group">
+
+											<select th:field="*{endereco.uf}" class="form-control bg-light select2bs4"
+												style="width: 100%;">
+												<option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">SP
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" placeholder="Cidade"
+										th:field="*{endereco.cidade}" required>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" placeholder="Bairro"
+										th:field="*{endereco.bairro}" required>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" placeholder="Rua/Logradouro"
+										th:field="*{endereco.logradouro}" required>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" placeholder="Número"
+										th:field="*{endereco.numero}" required>
+								</div>
+
+								<div class="input-group pt-4">
+									<div class="input-group-text">
+										<i class="bi bi-person-circle"></i>
+									</div>
+									<input class="form-control bg-light" type="text" placeholder="Complemento"
+										th:field="*{endereco.complemento}" required>
+								</div>
+
+								<div class="input-group pt-4 th:if=" th:if="${cliente.id==null}">
+									<div class="input-group-text">
+										<i class="bi bi-key"></i>
+									</div>
+									<input class="form-control bg-light" type="password" th:field="*{senha}"
+										placeholder="Senha" required>
+								</div>
+
+								<div class="d-flex justify-content-around">
+									<div>
+
+									</div>
+								</div>
+
+								<input type="submit" value="Salvar"
+									class="btn button btn-primary text-white w-100  mt-4 fw-semibold shadow-sm fs-5">
+
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</main>
+
+
+
+</body>
+
+</html>

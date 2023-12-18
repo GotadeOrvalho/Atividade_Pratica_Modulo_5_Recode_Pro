@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html th:replace="~{areafuncionario/layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+  <title>Detalhes do Destino</title>
+</head>
+
+<body>
+  <main>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                
+
+                <h3 class="profile-username text-center" th:text="${destino.cidade}">Nina Mcintire</h3>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Dados do destino</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Cidade</strong>
+                <p class="text-muted" th:text="${destino.cidade}">
+                  484.325.821-07
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Estado</strong>
+                <p class="text-muted" th:text="${destino.uf}">(82) 98881-5053</p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> País</strong>
+                <p class="text-muted" id="email" th:text="${destino.pais}">nina@mail.com</p>
+
+                <hr>
+                
+                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Aeroporto</strong>
+                <p class="text-muted" id="email" th:text="${destino.aeroporto}">nina@mail.com</p>
+
+                <hr>
+                
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Número do vôo</strong>
+                <p class="text-muted" id="email" th:text="${destino.num_voo}">nina@mail.com</p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Data e hora de embarque</strong>
+                <p class="text-muted" th:text="${#dates.format(destino.dataHora, 'dd/MM/yyyy - HH:mm')}">
+                  30 de maio de 1981
+                </p>
+                
+                <strong><i class="fas fa-envelope mr-1"></i> Promoção</strong>
+                <p class="text-muted" id="email" th:text="${destino.promocao}">nina@mail.com</p>
+
+                <hr>
+                
+                <strong><i class="fas fa-envelope mr-1"></i> Valor final</strong>
+                <p class="text-muted" id="email" th:text="${#numbers.formatCurrency(destino.valorFinal)}">nina@mail.com</p>
+
+                <hr>
+
+                <hr>
+
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Destino</h5>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <!-- The timeline -->
+                <div class="timeline">
+                  <!-- timeline item -->
+                  <div th:each="destino : ${destino}">
+                    <i class="fas fa-project-diagram bg-primary"></i>
+
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="far fa-clock"></i> <span th:text="${#dates.format(destino.dataHora, 'dd/MM/yyyy - HH:mm')}"></span>
+                      </span>
+
+                      <h3 class="timeline-header" th:text="${destino.cidade}"></h3>
+                      <span th:text="${destino.id_destino}"></span>
+
+                      <p>
+							<img alt="Image" class="w-100" th:src="@{'/destinos/imagem/' + ${destino.id_destino}}" />
+						</p>
+                  </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+    </div>
+  </main>
+
+  <th:block th:fragment="scripts">
+   
+    
+  </th:block>
+</body>
+
+</html>

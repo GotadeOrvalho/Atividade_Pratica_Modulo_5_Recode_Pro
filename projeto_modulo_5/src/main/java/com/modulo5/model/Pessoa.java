@@ -32,7 +32,7 @@ public abstract class Pessoa extends Entidade {
     @DateTimeFormat(iso = ISO.DATE)
     private LocalDate dataNascimento;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "endereco_id_fk", nullable = false)
     private Endereco endereco;
     

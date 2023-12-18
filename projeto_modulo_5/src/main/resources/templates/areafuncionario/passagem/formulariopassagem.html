@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html th:replace="~{areafuncionario/layout :: layout (~{::title}, ~{::main}, ~{::styles}, ~{::scripts})}">
+
+<th:block th:fragment="styles">
+	<link rel="stylesheet" th:href="@{/plugins/select2/css/select2.min.css}">
+	<link rel="stylesheet" th:href="@{/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
+</th:block>
+
+<head>
+	<title>[[${passagem.id_passagem == null ? 'Novo' : 'Editar'}]] Passagem</title>
+</head>
+
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form method="POST" th:object="${passagem}">
+
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+						<div class="card-body">
+							<input type="hidden" th:field="*{id_passagem}">
+
+							<div class="row">
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label>Cliente</label>
+										<select th:field="*{cliente}" class="form-control select2bs4"
+											style="width: 100%;">
+											<option th:each="cliente : ${cliente}" th:text="${cliente.nome}"
+												th:value="${cliente.id}"></option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label>Destino</label>
+										<select th:field="*{destino}" class="form-control select2bs4"
+											style="width: 100%;">
+											<option th:each="destino : ${destino}" th:text="${destino.cidade}"
+												th:value="${destino.id_destino}"></option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label>Estado</label>
+										<select th:field="*{assento}" class="form-control select2bs4"
+											style="width: 100%;">
+											<option th:each="assento : ${assentos}" th:text="${assento}"
+												th:value="${assento}">SP</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+
+						</div>
+
+						<!-- /.card-body -->
+
+						<div class="card-footer">
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:fragment="scripts">
+		<script th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
+		<script th:src="@{/plugins/jquery-mask/jquery.mask.min.js}"></script>
+		<script>
+			$('.select2bs4').select2({
+				theme: 'bootstrap4'
+			})
+
+			$('#orcamento').mask('#.##0,00', {reverse: true});
+			$('#gastos').mask('#.##0,00', {reverse: true});
+		</script>
+	</th:block>
+</body>
+
+</html>
