@@ -42,7 +42,7 @@ public class PaginasController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/logincliente")
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView("usuario/login");
 

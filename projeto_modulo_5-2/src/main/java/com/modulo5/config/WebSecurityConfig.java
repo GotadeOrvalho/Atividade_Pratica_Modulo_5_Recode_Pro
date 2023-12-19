@@ -9,7 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import br.com.projetos.servicos.UserDetailsServiceImpl;
+import com.modulo5.servicos.UserDetailsServiceImpl;
+import com.modulo5.enums.Perfil;
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	            .antMatchers("/img/**").permitAll()
 	            .antMatchers("/js/**").permitAll()
 	            .antMatchers("/plugins/**").permitAll()
+	            .antMatchers("/clientes/**").hasAuthority(Perfil.ADMIN.toString())
+	            .antMatchers("/destinos/**").hasAuthority(Perfil.ADMIN.toString())
+	            .antMatchers("/funcionarios/**").hasAuthority(Perfil.ADMIN.toString())
+	            .antMatchers("/mensagens/**").hasAuthority(Perfil.ADMIN.toString())
+	            .antMatchers("/passagem/**").hasAuthority(Perfil.ADMIN.toString())
 	            .anyRequest().authenticated();
 
 	        http.formLogin()

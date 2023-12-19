@@ -2,11 +2,12 @@ package com.modulo5.model;
 
 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import com.modulo5.enums.UF;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 
 @Entity
 public class Endereco extends Entidade {
